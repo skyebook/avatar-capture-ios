@@ -181,7 +181,7 @@ open class AvatarCaptureController: UIViewController {
                                                  y: view.frame.origin.y + 40,
                                                  width: 32,
                                                  height: 32))
-        cancelButton = setButtonProperties(button: cancelButton, fontSize: 32, icon: .close, selector: #selector(cancel))
+        cancelButton = setButtonProperties(button: cancelButton, fontSize: 32, icon: .times, selector: #selector(cancel))
         captureView?.addSubview(cancelButton)
         
         imageSelectedView = UIView.init(frame: (captureView?.frame)!)
@@ -227,13 +227,13 @@ open class AvatarCaptureController: UIViewController {
                                                       width: 47,
                                                       height: 25))
         
-        swapCamerasButton = setButtonProperties(button: swapCamerasButton, fontSize: 25, icon: .refresh, selector: #selector(swapCameras))
+        swapCamerasButton = setButtonProperties(button: swapCamerasButton, fontSize: 25, icon: .sync, selector: #selector(swapCameras))
         captureView?.addSubview(swapCamerasButton)
     }
     
     func setButtonProperties(button: UIButton, fontSize: Int, icon: FontAwesome, selector: Selector) -> UIButton {
         button.addTarget(self, action: selector, for: .touchUpInside)
-        button.titleLabel?.font = UIFont.fontAwesome(ofSize: CGFloat(fontSize))
+        button.titleLabel?.font = UIFont.fontAwesome(ofSize: CGFloat(fontSize), style: .regular)
         button.setTitleColor(UIColor.white, for: .normal)
         button.setTitleColor(UIColor.gray, for: .highlighted)
         button.setTitle(String.fontAwesomeIcon(name: icon), for: .normal)
